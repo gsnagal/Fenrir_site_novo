@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
     <meta charset="UTF-8">
-    <title>FlaskBlog</title>
+    <title>Fenrir</title>
 </head>
 <body>
-   <h1>Welcome to FlaskBlog</h1>
-</body>
-</html>
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <title>FlaskBlog</title>
-</head>
-
+   <h1>Fenrir</h1>
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
+    <h1>{% block title %} Dados {% endblock %}</h1>
     {% for post in posts %}
-        <a href="#">
-            <h2>{{ post['title'] }}</h2>
-        </a>
-        <span class="badge badge-primary">{{ post['created'] }}</span>
+   <h1> Volta {{post['lap']}}</h1>
+            <h2>{{ post['vel'] }}</h2>
+        <span class="badge badge-dark">{{ post['lat'] }}</span>
+        <span class="badge badge-dark">{{ post['lon'] }}</span>
+        <span class="badge badge-dark">{{ post['datetime'] }}</span>
         <hr>
     {% endfor %}
 {% endblock %}
+</body>
+</html>
+
+
