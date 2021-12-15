@@ -26,12 +26,6 @@ def get_round(round_id):
     round = session.query(Fenrir_db).filter_by(round_uuid=round_id)
     return jsonify(data=[c.serialize for c in round])
 
-@app.route('/')
-def index():
-    data = session.query(Fenrir_db).all()
-#    data = jsonify(data=[d.serialize for d in data])
-    return render_template('index.html', posts=data)
-
 def add_new_data(round_uuid, lap, lat, lon, vel, datetime, set, timeset, timelap):
     new_data = Fenrir_db(round_uuid = round_uuid, lap = lap, lat = lat, lon = lon, vel = vel, datetime = datetime, set = set, timeset = timeset, timelap = timelap)
     session.add(new_data)
@@ -49,15 +43,21 @@ def get_newest_data():
     return jsonify(data=newest.serialize)
 
 
-# @app.route('/', methods=['GET'])
-# @app.route('/FenrirApi', methods=['GET', 'POST'])
-# def data_function():
-#     if request.method == 'GET':
-#         return get_all_data()
-#     elif request.method == 'POST':
-#         content = request.get_json()
-#         return add_new_data(content['round_uuid'], content['lap'], content['lat'], content['lon'], content['vel'], time.time(), content['set'], content['timeset'], content['timelap'])
-#
+# Rotas
+@app.route('/')
+def index():
+    data = session.query(Fenrir_db).all()
+#    data = jsonify(data=[d.serialize for d in data])
+    return render_template('index.html', posts=data)
+
+@app.route('/FenrirApi', methods=['GET', 'POST'])
+def data_function():
+    if request.method == 'GET':
+        return get_all_data()
+    elif request.method == 'POST':
+        content = request.get_json()
+        return add_new_data(content['round_uuid'], content['lap'], content['lat'], content['lon'], content['vel'], time.time(), content['set'], content['timeset'], content['timelap'])
+
 
 
 @app.route('/FenrirApi/<string:uuid>', methods=['GET', 'DELETE'])
