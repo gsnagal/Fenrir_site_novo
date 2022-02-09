@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/gsnagal/Área de Trabalho/Fenrir_site_novo/venv"
+VIRTUAL_ENV="/home/gsnagal/Fenrir/Fenrir_site_novo/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

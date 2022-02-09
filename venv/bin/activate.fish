@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/home/gsnagal/Área de Trabalho/Fenrir_site_novo/venv"
+set -gx VIRTUAL_ENV "/home/gsnagal/Fenrir/Fenrir_site_novo/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
