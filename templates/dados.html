@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Fenrir</h1>
+        <h1>{% block title %} Dados {% endblock %}</h1>
+        {% for post in posts %}
+            <h1> Volta {{post['lap']}}</h1>
+            <h2>{{ post['vel'] }}</h2>
+            <span class="badge badge-dark">{{ post['lat'] }}</span>
+            <span class="badge badge-dark">{{ post['lon'] }}</span>
+            <span class="badge badge-dark">{{ post['datetime'] }}</span>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+

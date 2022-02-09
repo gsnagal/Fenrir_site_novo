@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-    <meta charset="UTF-8">
-    <title>Fenrir</title>
-</head>
-<body>
-   <h1>Fenrir</h1>
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %} Dados {% endblock %}</h1>
-    {% for post in posts %}
-   <h1> Volta {{post['lap']}}</h1>
-            <h2>{{ post['vel'] }}</h2>
-        <span class="badge badge-dark">{{ post['lat'] }}</span>
-        <span class="badge badge-dark">{{ post['lon'] }}</span>
-        <span class="badge badge-dark">{{ post['datetime'] }}</span>
-        <hr>
-    {% endfor %}
+<ul class="nav flex-column">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('dados') }}">Dados</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('data_function') }}">API</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('newest_data') }}">Newest API</a>
+    </li>
+</ul>
 {% endblock %}
-</body>
-</html>
+
 
 

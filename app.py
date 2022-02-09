@@ -46,9 +46,13 @@ def get_newest_data():
 # Rotas
 @app.route('/')
 def index():
+    return render_template('index.html')
+
+@app.route('/dados')
+def dados():
     data = session.query(Fenrir_db).all()
 #    data = jsonify(data=[d.serialize for d in data])
-    return render_template('index.html', posts=data)
+    return render_template('dados.html', posts=data)
 
 @app.route('/FenrirApi', methods=['GET', 'POST'])
 def data_function():
