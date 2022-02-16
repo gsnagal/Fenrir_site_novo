@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('dados') }}">Dados</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('data_function') }}">API</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url_for('newest_data') }}">Newest API</a>
-    </li>
-</ul>
+<div class="row">
+    <div class="col-2">
+        <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+                <a class="nav-link active" href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dados') }}">Dados</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-warning" href="{{ url_for('data_function') }}">API</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-9">
+    </div>
+</div>
+
 {% endblock %}
 
 

@@ -48,7 +48,7 @@ def get_newest_data():
 def index():
     return render_template('index.html')
 
-@app.route('/dados')
+@app.route('/data')
 def dados():
     data = session.query(Fenrir_db).all()
 #    data = jsonify(data=[d.serialize for d in data])
@@ -61,8 +61,6 @@ def data_function():
     elif request.method == 'POST':
         content = request.get_json()
         return add_new_data(content['round_uuid'], content['lap'], content['lat'], content['lon'], content['vel'], time.time(), content['set'], content['timeset'], content['timelap'])
-
-
 
 @app.route('/FenrirApi/<string:uuid>', methods=['GET', 'DELETE'])
 def round_by_uuid(uuid):

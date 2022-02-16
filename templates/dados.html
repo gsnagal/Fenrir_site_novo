@@ -2,19 +2,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        <h1>Fenrir</h1>
-        <h1>{% block title %} Dados {% endblock %}</h1>
-        {% for post in posts %}
-            <h1> Volta {{post['lap']}}</h1>
-            <h2>{{ post['vel'] }}</h2>
-            <span class="badge badge-dark">{{ post['lat'] }}</span>
-            <span class="badge badge-dark">{{ post['lon'] }}</span>
-            <span class="badge badge-dark">{{ post['datetime'] }}</span>
-            <hr>
-        {% endfor %}
+    <div class="row">
+        <div class="col-2">
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('dados') }}">Dados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-warning" href="{{ url_for('data_function') }}">API</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-9">
+            <div class="container">
+                <h1>Fenrir</h1>
+                <h1>{% block title %} Dados {% endblock %}</h1>
+                {% for post in posts %}
+                    <h1> Volta {{post['lap']}}</h1>
+                    <h2>{{ post['vel'] }}</h2>
+                    <span class="badge badge-dark">{{ post['lat'] }}</span>
+                    <span class="badge badge-dark">{{ post['lon'] }}</span>
+                    <span class="badge badge-dark">{{ post['datetime'] }}</span>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
     </div>
+
 {% endblock %}
-
-
-
